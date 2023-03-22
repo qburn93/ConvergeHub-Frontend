@@ -2,36 +2,43 @@ import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
+import { NavLink } from "react-router-dom";
+
 
 const NavBar = () => {
     return (
         <Navbar className={styles.NavBar} expand="md" fixed="top">
             <Container>
-                <Navbar.Brand>
-                    <img src={logo} alt="logo" height="45" />
-                </Navbar.Brand>
+                <NavLink to="/">
+                    <Navbar.Brand>
+                        <img src={logo} alt="logo" height="45" />
+                    </Navbar.Brand>
+                </NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-left">
-                        <Nav.Link>
+                        <NavLink
+                            exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active} to="/">
                             <i className="fas fa-home"></i>Home
-                        </Nav.Link>
-                        <Nav.Link>
+                        </NavLink>
+                        <NavLink
+                            className={styles.NavLink}
+                            activeClassName={styles.Active} to="/signin">
                             <i className="fas fa-sign-in-alt"></i>Sign in
-                        </Nav.Link>
-                        <Nav.Link>
+                        </NavLink>
+                        <NavLink
+                            exact
+                            className={styles.NavLink}
+                            activeClassName={styles.Active} to="/signup">
                             <i className="fas fa-user-plus"></i>Sign up
-                        </Nav.Link>
-                        <NavDropdown title="Categories" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Uncategorized</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                                Nature
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Adventure</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
-                                Separated link
-                            </NavDropdown.Item>
+                        </NavLink>
+                        <NavDropdown className={styles.NavLink} activeClassName={styles.Active} title="Categories" id="basic-nav-dropdown">
+                            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/uncategorized">Uncategorized</NavLink>
+                            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/nature">Nature</NavLink>
+                            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/adventure">Adventure</NavLink>
+
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
