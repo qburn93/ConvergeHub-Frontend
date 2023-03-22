@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { CurrentUserContext } from "../App";
+import { useCurrentUser } from "../context/CurrentUserContext";
 
 
 const NavBar = () => {
-    const currentUser = useContext(CurrentUserContext)
+    const currentUser = useCurrentUser();
     const loggedInIcons = <>
         {currentUser?.username}
         <NavDropdown className={styles.NavLink} activeClassName={styles.Active} title="Categories" id="basic-nav-dropdown">
