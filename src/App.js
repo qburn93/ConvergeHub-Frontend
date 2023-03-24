@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import './api/axiosDefaults';
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
-
+import PostCreateForm from "./pages/posts/PostCreateForm";
 
 
 
@@ -20,6 +20,7 @@ function App() {
           <Route exact path="/" render={() => <h1>ConvergeHub</h1>} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/uncategorized" render={() => <h1>Uncategorised</h1>} />
           <Route exact path="/nature" render={() => <h1>Nature</h1>} />
           <Route exact path="/adventure" render={() => <h1>Adventure</h1>} />
