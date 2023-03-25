@@ -1,19 +1,21 @@
+import axios from "axios";
 import React, { useState } from "react";
 
-import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
 
 import Upload from "../../assets/upload.png";
 
-import styles from "../../styles/PostCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
+import appStyles from "../../App.module.css";
+import Asset from "../../components/Asset";
+import btnStyles from "../../styles/Button.module.css";
+import styles from "../../styles/PostCreateEditForm.module.css";
 
+import { CurrentUserContext } from "../../context/CurrentUserContext";
 
 function PostCreateForm() {
     const [errors, setErrors] = useState({});
@@ -24,6 +26,7 @@ function PostCreateForm() {
         image: "",
         category: "",
     });
+    const [uploadedImage, setUploadedImage] = useState();
     const { title, content, image, category } = postData;
 
     const handleChange = (event) => {
@@ -40,54 +43,78 @@ function PostCreateForm() {
                 ...postData,
                 image: URL.createObjectURL(event.target.files[0]),
             });
+            setUploadedImage(event.target.files[0]);
         }
     };
 
+    const handleSubmit = (userValue) => {
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('content', content);
+        formData.append('image', uploadedImage);
+        formData.append('category', category);
+
+        axios.post('/posts/', formData, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        }).then(response => {
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+        });
+        // FormData;
+    };
+
     const textFields = (
-        <div className="text-center">
-            <Form.Group>
-                <Form.Label>Title</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="title"
-                    value={title}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Content</Form.Label>
-                <Form.Control
-                    as="textarea"
-                    rows={6}
-                    name="content"
-                    value={content}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Category</Form.Label>
-                <Form.Control
-                    as="select"
-                    name="category"
-                    value={category}
-                    onChange={handleChange}
-                >
-                    <option value="">Select a category</option>
-                    <option value="category1">Uncategorised</option>
-                    <option value="category2">Adventure</option>
-                    <option value="category3">Nature</option>
-                </Form.Control>
-            </Form.Group>
-            <Button
-                className={`${btnStyles.Button} ${btnStyles.Blue}`}
-                onClick={() => { }}
-            >
-                cancel
-            </Button>
-            <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-                create
-            </Button>
-        </div>
+        <CurrentUserContext.Consumer>
+            {value => (
+                <div className="text-center">
+                    <Form.Group>
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="title"
+                            value={title}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Content</Form.Label>
+                        <Form.Control
+                            as="textarea"
+                            rows={6}
+                            name="content"
+                            value={content}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Category</Form.Label>
+                        <Form.Control
+                            as="select"
+                            name="category"
+                            value={category}
+                            onChange={handleChange}
+                        >
+                            <option value="">Select a category</option>
+                            <option value="Uncategorised">Uncategorised</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Nature">Nature</option>
+                        </Form.Control>
+                    </Form.Group>
+                    <Button
+                        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                        onClick={() => { }}
+                    >
+                        cancel
+                    </Button>
+                    <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="button" onClick={() => { handleSubmit(value); }}>
+                        create
+                    </Button>
+                </div>
+            )}
+        </CurrentUserContext.Consumer>
     );
 
     return (
