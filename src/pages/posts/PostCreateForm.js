@@ -18,19 +18,16 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import axios from "axios";
-import { CurrentUserContext } from "../../context/CurrentUserContext";
 
 function PostCreateForm() {
     const [errors, setErrors] = useState({});
-    const [imageToUpload,setImageToUpload]=useState()
+
     const [postData, setPostData] = useState({
         title: "",
         content: "",
         image: "",
-        category:"",
     });
-    const { title, content, image,category } = postData;
+    const { title, content, image } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -49,61 +46,29 @@ function PostCreateForm() {
                 ...postData,
                 image: URL.createObjectURL(event.target.files[0]),
             });
-            setImageToUpload(event.target.files[0])
         }
     };
 
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     const formData = new FormData();
-
-    //     formData.append("title", title);
-    //     formData.append("content", content);
-    //     formData.append("image", imageToUpload);
-
-    //     try {
-    //         const { data } = await axiosReq.post("/posts/", formData);
-    //         history.push(`/posts/${data.id}`);
-    //     } catch (err) {
-    //         console.log(err);
-    //         if (err.response?.status !== 401) {
-    //             setErrors(err.response?.data);
-    //         }
-    //     }
-    // };
-    const handleForm=(userValue)=>{
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         const formData = new FormData();
 
         formData.append("title", title);
         formData.append("content", content);
-        formData.append("image", imageToUpload);
-        formData.append("user", userValue.username);
-        formData.append("category", category);
-        
-        for (let pair of formData.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]); 
-        }
+        formData.append("image", imageInput.current.files[0]);
 
-        const config = {
-            headers: {
-                'accept': 'application/json',
-                'Accept-Language': 'en-US,en;q=0.8',
-                'Content-Type': `multipart/form-data;`,
+        try {
+            const { data } = await axiosReq.post("/posts/", formData);
+            history.push(`/posts/${data.id}`);
+        } catch (err) {
+            console.log(err);
+            if (err.response?.status !== 401) {
+                setErrors(err.response?.data);
             }
         }
-
-        axios.post('/posts/',formData,config)
-            .then((res)=>{
-                console.log(res)
-            })
-            .catch((err)=>{
-                console.log(err)
-            })
-    }
+    };
 
     const textFields = (
-        <CurrentUserContext.Consumer>
-            {value => (
         <div className="text-center">
             <Form.Group>
                 <Form.Label>Title</Form.Label>
@@ -129,17 +94,6 @@ function PostCreateForm() {
                     value={content}
                     onChange={handleChange}
                 />
-                <Form.Control
-                    as="select"
-                    name="category"
-                    value={category}
-                    onChange={handleChange}
-                >
-                    <option value="">Select a category</option>
-                    <option value="Uncategorised">Uncategorised</option>
-                    <option value="Adventure">Adventure</option>
-                    <option value="Nature">Nature</option>
-                </Form.Control>
             </Form.Group>
             {errors?.content?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
@@ -153,16 +107,14 @@ function PostCreateForm() {
             >
                 cancel
             </Button>
-            <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="button" onClick={()=>{handleForm(value)}}>
+            <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
                 create
             </Button>
         </div>
-)}
-</CurrentUserContext.Consumer>
     );
 
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Row>
                 <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
                     <Container
