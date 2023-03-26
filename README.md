@@ -29,8 +29,6 @@ This is my 5th portfolio project developed as part of the Code Institute Diploma
   - [Post List View](#post-list-view)
   - [Post Detail View](#post-detail-view)
   - [Post Search Form](#post-search-form)
-  - [Note Creation, Editing and Deletion](#note-creation-editing-and-deletion)
-  - [Bookmarks](#bookmarks)
   - [Top Sellers and Following Users](#top-sellers-and-following-users)
   - [Profile](#profile)
   - [Profile Edit Form](#profile-edit-form)
