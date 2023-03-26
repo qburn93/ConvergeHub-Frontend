@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -11,13 +11,12 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
-
-
 const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
+
     const { expanded, setExpanded, ref } = useClickOutsideToggle();
-    
+
     const handleSignOut = async () => {
         try {
             await axios.post("dj-rest-auth/logout/");
@@ -52,11 +51,6 @@ const NavBar = () => {
             >
                 <i className="fas fa-heart"></i>Liked
             </NavLink>
-            <NavDropdown className={styles.NavLink} activeClassName={styles.Active} title="Categories" id="basic-nav-dropdown">
-                <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/uncategorized">Uncategorized</NavLink>
-                <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/nature">Nature</NavLink>
-                <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/adventure">Adventure</NavLink>
-            </NavDropdown>
             <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
                 <i className="fas fa-sign-out-alt"></i>Sign out
             </NavLink>
@@ -88,7 +82,12 @@ const NavBar = () => {
     );
 
     return (
-        <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
+        <Navbar
+            expanded={expanded}
+            className={styles.NavBar}
+            expand="md"
+            fixed="top"
+        >
             <Container>
                 <NavLink to="/">
                     <Navbar.Brand>
@@ -96,10 +95,11 @@ const NavBar = () => {
                     </Navbar.Brand>
                 </NavLink>
                 {currentUser && addPostIcon}
-                <Navbar.Toggle 
+                <Navbar.Toggle
                     ref={ref}
-                    onClick={() => setExpanded(!expanded)} 
-                    aria-controls="basic-navbar-nav" />
+                    onClick={() => setExpanded(!expanded)}
+                    aria-controls="basic-navbar-nav"
+                />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-left">
                         <NavLink

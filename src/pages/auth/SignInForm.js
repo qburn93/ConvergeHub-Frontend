@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 import Form from "react-bootstrap/Form";
@@ -19,8 +19,6 @@ import { useSetCurrentUser } from "../../context/CurrentUserContext";
 function SignInForm() {
     const setCurrentUser = useSetCurrentUser();
 
-
-
     const [signInData, setSignInData] = useState({
         username: "",
         password: "",
@@ -32,9 +30,10 @@ function SignInForm() {
     const history = useHistory();
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         try {
-            const {data} = await axios.post("/dj-rest-auth/login/", signInData);
-            setCurrentUser(data.user)
+            const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+            setCurrentUser(data.user);
             history.push("/");
         } catch (err) {
             setErrors(err.response?.data);
@@ -112,7 +111,7 @@ function SignInForm() {
             >
                 <Image
                     className={`${appStyles.FillerImage}`}
-                    src={"https://i.imgur.com/OSK3clS.jpg"}
+                    src={"https://i.imgur.com/j6VY0qL.jpg"}
                 />
             </Col>
         </Row>

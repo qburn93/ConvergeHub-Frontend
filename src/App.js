@@ -8,29 +8,21 @@ import SignInForm from "./pages/auth/SignInForm";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 import PostPage from "./pages/posts/PostPage";
 
-
-
 function App() {
-
   return (
-
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <h1>ConvergeHub</h1>} />
+          <Route exact path="/" render={() => <h1>Home page</h1>} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
-          <Route exact path="/uncategorized" render={() => <h1>Uncategorised</h1>} />
-          <Route exact path="/nature" render={() => <h1>Nature</h1>} />
-          <Route exact path="/adventure" render={() => <h1>Adventure</h1>} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
     </div>
-
   );
 }
 
