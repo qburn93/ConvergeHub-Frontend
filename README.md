@@ -204,12 +204,7 @@ On ConvergeHub's social image sharing platform, this view is shown on the Home, 
   - This component is displayed when a user navigates to a resource that doesn't exist.
   - It improves the user experience by providing feedback when an error has occurred and allowing the NavBar to remain accessible so they can continue to use the site.
 
-# PostCreateForm updated:
-1. **Import statements**: `Alert` and `Image` are imported from `react-bootstrap`, as they are used for displaying error messages and the image preview.
-2. **State**: A new state variable, `category`, is added to the `postData` state object to manage the selected category. This variable is used to track the category selection in the form.
-3. **Category** selection: A `Form.Control` element with `as="select"` is added to the `Form.Group` for content. This dropdown allows users to select a category for their post. The `name` attribute is set to `"category"`, and the `value` attribute is set to the `category` state variable. The `onChange` event handler is set to `handleChange`, which updates the `category` state when the user selects a different option.
-4. **Handle form submit**: The `handleSubmit` function has been replaced with the `handleForm` function. In the new function, `userValue` is passed in as an argument to provide user information. The `category` and `user` values are appended to the `FormData` object. The updated `FormData` object is then used in the `axios.post` request to submit the form data.
-5. **CurrentUserContext.Consumer**: A `CurrentUserContext.Consumer` component is wrapped around the text fields to pass the `value` (current user information) to the `handleForm` function. This value is used when appending the `user` value to the FormData object.
+
 
 ### Future Features
 
