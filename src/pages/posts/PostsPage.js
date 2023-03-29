@@ -11,11 +11,11 @@ import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
 import { useLocation } from "react-router";
-import { axiosReq } from '../../api/axiosDefaults'
+import { axiosReq } from "../../api/axiosDefaults";
+
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-
 
 function PostsPage({ message, filter = "" }) {
     const [posts, setPosts] = useState({ results: [] });
@@ -28,12 +28,13 @@ function PostsPage({ message, filter = "" }) {
         const fetchPosts = async () => {
             try {
                 const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
-                setPosts(data)
+                setPosts(data);
                 setHasLoaded(true);
             } catch (err) {
                 console.log(err);
             }
         };
+
         setHasLoaded(false);
         const timer = setTimeout(() => {
             fetchPosts();
