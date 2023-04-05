@@ -15,9 +15,11 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function SignInForm() {
     const setCurrentUser = useSetCurrentUser();
+    useRedirect("loggedIn");
 
     const [signInData, setSignInData] = useState({
         username: "",
@@ -34,7 +36,7 @@ function SignInForm() {
         try {
             const { data } = await axios.post("/dj-rest-auth/login/", signInData);
             setCurrentUser(data.user);
-            history.push("/");
+            history.goBack();
         } catch (err) {
             setErrors(err.response?.data);
         }
@@ -111,7 +113,7 @@ function SignInForm() {
             >
                 <Image
                     className={`${appStyles.FillerImage}`}
-                    src={"https://i.imgur.com/j6VY0qL.jpg"}
+                    src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero.jpg"}
                 />
             </Col>
         </Row>
