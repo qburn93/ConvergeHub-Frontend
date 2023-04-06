@@ -17,7 +17,9 @@ const Post = (props) => {
         likes_count,
         like_id,
         title,
-        content,
+        description,
+        food_review,
+        review_grade,
         image,
         updated_at,
         postPage,
@@ -98,7 +100,7 @@ const Post = (props) => {
             </Link>
             <Card.Body>
                 {title && <Card.Title className="text-center">{title}</Card.Title>}
-                {content && <Card.Text>{content}</Card.Text>}
+                {description && <Card.Text>{description}</Card.Text>}
                 <div className={styles.PostBar}>
                     {is_owner ? (
                         <OverlayTrigger
@@ -128,6 +130,16 @@ const Post = (props) => {
                         <i className="far fa-comments" />
                     </Link>
                     {comments_count}
+                </div>
+                <div className="d-flex justify-content-between">
+                    <div>
+                        <span>Review grade: </span>
+                        <span>{review_grade}</span>
+                    </div>
+                    <div>
+                        <span>Food Review: </span>
+                        <span>{food_review}</span>
+                    </div>
                 </div>
             </Card.Body>
         </Card>

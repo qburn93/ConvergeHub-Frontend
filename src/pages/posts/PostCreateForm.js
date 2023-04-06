@@ -26,10 +26,13 @@ function PostCreateForm() {
 
     const [postData, setPostData] = useState({
         title: "",
-        content: "",
+        description: "",
         image: "",
+        review_grade: "",
+        food_review: "",
+        
     });
-    const { title, content, image } = postData;
+    const { title, description, image, review_grade, food_review } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -56,7 +59,9 @@ function PostCreateForm() {
         const formData = new FormData();
 
         formData.append("title", title);
-        formData.append("content", content);
+        formData.append("description", description);
+        formData.append("review_grade", review_grade);
+        formData.append("food_review", food_review);
         formData.append("image", imageInput.current.files[0]);
 
         try {
@@ -88,20 +93,55 @@ function PostCreateForm() {
             ))}
 
             <Form.Group>
-                <Form.Label>Content</Form.Label>
+                <Form.Label>Review Grade</Form.Label>
+                <Form.Control
+                    as="select"
+                    type="text"
+                    name="review_grade"
+                    value={review_grade}
+                    onChange={handleChange}
+                >
+                    <option value="">Choose one</option>
+                    <option value="A+">A+</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="F">F</option>
+                </Form.Control>
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Description</Form.Label>
                 <Form.Control
                     as="textarea"
                     rows={6}
-                    name="content"
-                    value={content}
+                    name="description"
+                    value={description}
                     onChange={handleChange}
                 />
             </Form.Group>
-            {errors?.content?.map((message, idx) => (
+            {errors?.description?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                     {message}
                 </Alert>
             ))}
+
+            <Form.Group>
+                <Form.Label>Food Review</Form.Label>
+                <Form.Control
+                    as="select"
+                    type="text"
+                    name="food_review"
+                    value={food_review}
+                    onChange={handleChange}
+                >
+                    <option value="">Choose one</option>
+                    <option value="delicious">Delicious</option>
+                    <option value="not_salty_enough">Not Salty Enough</option>
+                    <option value="too_sweet">Too Sweet</option>
+                    <option value="not_so_good">Not So Good</option>
+                </Form.Control>
+            </Form.Group>
 
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Blue}`}
