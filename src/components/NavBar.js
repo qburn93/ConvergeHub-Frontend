@@ -34,7 +34,7 @@ const NavBar = () => {
             activeClassName={styles.Active}
             to="/posts/create"
         >
-            <i className="far fa-plus-square"></i>Add post
+            <i className="far fa-plus-square"></i>Add Travel Review
         </NavLink>
     );
     const loggedInIcons = (
@@ -94,6 +94,7 @@ const NavBar = () => {
                 <NavLink to="/">
                     <Navbar.Brand>
                         <img src={logo} alt="logo" height="45" />
+                        <span className="AppName">ConvergeHub</span>
                     </Navbar.Brand>
                 </NavLink>
                 {currentUser && addPostIcon}

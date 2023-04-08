@@ -8,5 +8,13 @@
 }
 
 .Active i {
-    color: #10FFCB;
+    color: #957FEF;
+}
+
+.AppName {
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #000; /* You can change this to match your desired text color */
 }

@@ -133,12 +133,10 @@ const Post = (props) => {
                 </div>
                 <div className="d-flex justify-content-between">
                     <div>
-                        <span>Review grade: </span>
-                        <span>{review_grade}</span>
+                        Review grade: {review_grade}
                     </div>
                     <div>
-                        <span>Food Review: </span>
-                        <span>{food_review}</span>
+                        Food Review: {food_review}
                     </div>
                 </div>
             </Card.Body>
