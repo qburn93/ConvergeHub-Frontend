@@ -67,6 +67,33 @@ The initial aims of the ConvergeHub project were to create a social image sharin
 - Platform Owners can create / edit / delete articles to help users improve their photography skills.
 - Registered users can read and comment on articles to learn new techniques and get inspiration for their own photography.
 
+# Wireframes
+- Feed Page
+![Feed Page](https://i.imgur.com/OIgCRH3.png)
+- Feed Page Mobile
+![Feed Page Mobile](https://i.imgur.com/8SwSbGQ.png)
+
+<br>
+
+- Post Detail Page
+![Feed Page](https://i.imgur.com/fldKtLe.png)
+- Post Detail Page Mobile
+![Feed Page Mobile](https://i.imgur.com/tGFgn4D.png)
+
+<br>
+
+- Profile Detail Page
+![Feed Page](https://i.imgur.com/syvDGcb.png)
+- Profile Detail Page Mobile
+![Feed Page Mobile](https://i.imgur.com/xaobqcN.png)
+
+<br>
+
+- Profile Detail Page
+![Feed Page](https://i.imgur.com/NHZIhm9.png)
+- Profile Detail Page Mobile
+![Feed Page Mobile](https://i.imgur.com/6bNcjJk.png)
+
 ## Features
 
 ### Home Page
