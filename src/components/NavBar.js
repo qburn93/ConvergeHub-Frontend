@@ -94,7 +94,20 @@ const NavBar = () => {
                 <NavLink to="/">
                     <Navbar.Brand>
                         <img src={logo} alt="logo" height="45" />
-                        <span className="AppName">ConvergeHub</span>
+                        <span className={styles.AppName}>
+                            <span className={styles.m}>C</span>
+                            <span className={styles.m}>o</span>
+                            <span className={styles.m}>n</span>
+                            <span className={styles.m}>v</span>
+                            <span className={styles.m}>e</span>
+                            <span className={styles.m}>r</span>
+                            <span className={styles.m}>g</span>
+                            <span className={styles.m}>e</span>
+                            <span className={styles.m}>|</span>
+                            <span className={styles.m}>H</span>
+                            <span className={styles.m}>u</span>
+                            <span className={styles.m}>b</span>
+                        </span>
                     </Navbar.Brand>
                 </NavLink>
                 {currentUser && addPostIcon}

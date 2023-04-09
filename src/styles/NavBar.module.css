@@ -12,9 +12,23 @@
 }
 
 .AppName {
-    margin-left: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    vertical-align: middle;
-    color: #000; /* You can change this to match your desired text color */
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.5rem;
+    margin-left: 5px;
+    display: inline-flex;
+}
+
+.m {
+    color: #957FEF;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 4;
+}
+
+.m:hover {
+    color: #ff0266;
+    font-weight: 500;
+    transform: translate3d(0, -2px, 0);
 }
