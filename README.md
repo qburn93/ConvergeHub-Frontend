@@ -1,6 +1,16 @@
-This is my 5th portfolio project developed as part of the Code Institute Diploma in Full Stack Development. It was created to demonstrate skills acquired using the Django REST Framework and React to develop the API and Frontend respectively.
+# ConvergeHub-Backend
 
-![Website Preview]()
+![Website Preview](https://i.imgur.com/J3b34IW.png)
+
+ConvergeHub is a social platform designed for travel enthusiasts who want to share and explore reviews of their travel experiences. The website focuses on providing a space where users can share their travel photos, rate their trips, and write text-based reviews about the food they encountered during their journeys.
+
+The ConvergeHub community encourages users to engage with each other, discussing their adventures and exchanging travel tips. Visitors can also search for specific travel experiences or destinations to find reviews and inspiration for their next trip.
+
+Users can register on the website to access more features, such as liking their favorite travel photos or experiences, as well as following fellow travelers to stay updated on their future posts.
+
+This project's backend API is built on the Django REST framework and serves the frontend by retrieving and storing data in the database.
+
+<br>
 
 ## Demo
 
