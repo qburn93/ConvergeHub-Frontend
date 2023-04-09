@@ -16,15 +16,15 @@
 }
 
 .Button:hover:active {
-    background-color: #ff0266 !important;
+    background-color: #957FEF!important;
 }
 
 .Button:active {
-    background-color: #ff0266 !important;
+    background-color: #957FEF !important;
 }
 
 .Button:focus {
-    background-color: #ff0266;
+    background-color: #957FEF;
 }
 
 .Wide {
@@ -36,14 +36,14 @@
 .BlueOutline:hover,
 .Bright:hover {
     background-color: #ff0266;
-    color: #0F1108;
+    color: black;
 }
 
 .BlueOutline,
 .Blue:hover {
     /* border: 1px solid #2142b2; */
     background-color: #ffffff;
-    color: #ff0266;
+    color: #083D77;
 }
 
 .Black,
@@ -64,6 +64,6 @@
 }
 
 .Bright {
-    background-color: #ff0266;
+    background-color: #083D77;
     color: #ff0266;
 }
