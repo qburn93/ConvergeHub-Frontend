@@ -78,7 +78,7 @@ Design
 
   
 
- ![Pallete Color]()
+ ![Pallete Color](https://i.imgur.com/R0xsIZA.png)
 
 ## User Experience (UX)
 
