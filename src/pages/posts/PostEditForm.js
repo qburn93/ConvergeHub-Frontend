@@ -146,7 +146,22 @@ function PostEditForm() {
                 </Alert>
             ))}
             
-
+            <Form.Group>
+                <Form.Label>Food Review</Form.Label>
+                <Form.Control
+                    as="select"
+                    type="text"
+                    name="food_review"
+                    value={food_review}
+                    onChange={handleChange}
+                >
+                    <option value="">Choose one</option>
+                    <option value="delicious">Delicious</option>
+                    <option value="not_salty_enough">Not Salty Enough</option>
+                    <option value="too_sweet">Too Sweet</option>
+                    <option value="not_so_good">Not So Good</option>
+                </Form.Control>
+            </Form.Group>    
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Blue}`}
                 onClick={() => history.goBack()}
