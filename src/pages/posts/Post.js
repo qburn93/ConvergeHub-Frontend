@@ -132,11 +132,11 @@ const Post = (props) => {
                     {comments_count}
                 </div>
                 <div className="d-flex justify-content-between">
-                    <div>
-                        Review grade: {review_grade}
+                    <div className={styles.foodReviewDisplay}>
+                    Food Review: {food_review ? food_review.replace(/_/g, ' ') : ''}
                     </div>
-                    <div>
-                        Food Review: {food_review}
+                    <div className={styles.reviewGradeDisplay}>
+                        Review grade: {review_grade}
                     </div>
                 </div>
             </Card.Body>
