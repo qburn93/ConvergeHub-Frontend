@@ -39,7 +39,6 @@ This project's backend API is built on the Django REST framework and serves the 
   - [Post List View](#post-list-view)
   - [Post Detail View](#post-detail-view)
   - [Post Search Form](#post-search-form)
-  - [Top Sellers and Following Users](#top-sellers-and-following-users)
   - [Profile](#profile)
   - [Profile Edit Form](#profile-edit-form)
   - [Username and Password Edit Forms](#username-and-password-edit-forms)
@@ -65,17 +64,33 @@ This project's backend API is built on the Django REST framework and serves the 
   - [Media](#media)
   - [Acknowledgments](#acknowledgments)
 
+
+### Agile methodology
+
+- The Agile Methodology was employed throughout this project, where GitHub projects were used to create User Stories, including a list of priorities grouped into Tags. Thus, the process can be carried out with a view to the priorities of the (supposed) client.
+- A lst of all issues and its labels can be found [here](https://github.com/qburn93/convergehub-backend/issues).
+
+Design
+
+- #### Color Scheme
+
+  I decided to incorporate a minimalistic design approach for the site. This is in order to make the content and detailed information throughout the site to stand out better to the users.
+
+  
+
+ ![Pallete Color]()
+
 ## User Experience (UX)
 
-The initial aims of the ConvergeHub project were to create a social image sharing platform that allows registered users to share their photos and connect with other like-minded individuals. Key goals for the platform were identified as below and used to construct user stories:
+The initial aims of the ConvergeHub project were to create a social image reviews/posting platform that allows registered users to share their photos and connect with other like-minded individuals but also give a more detailed and coozy information such as food review overall of the country/location. Key goals for the platform were identified as below and used to construct user stories:
 
 - Create a social platform where users can upload and share their photos with others.
 - Allow users to search for images based on categories, tags, and other filters.
 - Allow users to save their favorite images and create collections for future reference.
-- Allow popular photographers and influencers to be followed so new content can be seen via a feed.
+- Allow popular photographers and users to be followed so new content can be seen via a feed.
 - Registered users can leave comments on images to express their thoughts and opinions.
-- Platform Owners can create / edit / delete articles to help users improve their photography skills.
-- Registered users can read and comment on articles to learn new techniques and get inspiration for their own photography.
+- Platform Owners can create / edit / delete reviews/posts to help users improve their photography skills.
+- Registered users can read and comment on reviews/posts to learn new techniques and get inspiration for their own photography.
 
 # Wireframes
 - Feed Page
@@ -116,13 +131,13 @@ The initial aims of the ConvergeHub project were to create a social image sharin
 [25](https://github.com/qburn93/convergehub-frontend/issues/25),
 [34](https://github.com/qburn93/convergehub-frontend/issues/34).
 
-![Home Page](docs/assets/features/homepage.png)
+![Home Page](https://i.imgur.com/nGqtrQp.png)
 
 ### Navigation
 
-The navigation bar on ConvergeHub's social image sharing platform features on all pages of the site. It was designed to be responsive and displays different links to visitors based on their authentication state.
+The navigation bar on ConvergeHub's features on all pages of the site. It was designed to be responsive and displays different links to visitors based on their authentication state.
 
-If a user is authenticated, they can see links to upload photos, view bookmarked (saved) images, view their image feed (photos shared by other users they have followed), a link to their profile, and the option to logout.
+If a user is authenticated, they can see links to upload photos, view their image feed (photos shared by other users they have followed), a link to their profile, and the option to logout.
 If a user is logged in but not authenticated, they can see all the options previously mentioned except for the link to upload photos.
 Anonymous visitors see links to login or register (sign up).
 When viewed on smaller viewports, all options are listed in a hamburger menu on the left of the navbar, which opens a Bootstrap off-canvas element. Key site features are duplicated on the right for quick access.
@@ -133,6 +148,20 @@ Allow authenticated users to upload and share their photos with others.
 Allow authenticated users to view their bookmarked images and follow other users to see their image feed.
 Allow anonymous visitors to login or register to become authenticated users.
 Create a responsive navigation bar that displays different links based on authentication state and is accessible on smaller viewports.
+
+### NavBar & Search
+
+- Contains the necessary links for navigation throughout the site.
+- Updates links are based on user state.
+- The searchbar makes it possible search among the various reviews.
+- When user is using a small screen, the NavBar toggle turns into a burger icon.
+
+![Navbar](https://i.imgur.com/zz5ZUuu.png)
+
+![Navbar](https://i.imgur.com/Dp618XQ.png)
+
+![Navbar](https://i.imgur.com/7hbcfRr.png)
+
 [6](https://github.com/qburn93/convergehub-frontend/issues/6),
 [7](https://github.com/qburn93/convergehub-frontend/issues/7),
 [8](https://github.com/qburn93/convergehub-frontend/issues/8),
@@ -162,40 +191,51 @@ Provide a checkbox during registration for visitors who want to be able to uploa
 
 ### Post Creation / Edit Form
 
-On ConvergeHub's social image sharing platform, users registered as sellers have access to create photo listings, which advertise photos for sharing.
+On ConvergeHub's social image sharing platform, users registered as sellers have access to create photo reviews, which advertise photos for sharing.
 
-- This form is used both when creating a photo listing and when editing an existing photo.
-- Users can upload an image to represent the photo listing.
-- Other photo details can be entered in the form fields to provide more detail about the photo such as title, description, and tags.
+- This form is used both when creating a travel photo review and when editing an existing photo.
+- Users can upload an image to represent the travel photo review.
+- Other photo details can be entered in the form fields to provide more detail about the photo such as title, description, food review, and travel grade.
 - Certain fields are mandatory and will be verified to ensure they are filled out correctly.
 - If no photo is provided, a default placeholder image will be used until one is provided by the user.
 User stories covered:
 
-- Allow users registered as sellers to create photo listings to advertise photos for sharing.
-- Allow users to upload images to represent their photo listings and enter other photo details such as title, description, and tags.
+- Allow users registered as users to create a travel photo review to the platform.
+- Allow users to upload images to represent their travel photo review and enter other photo details such as title, description, food review, and travel grade.
 - Ensure that certain fields are mandatory and verified to ensure they are filled out correctly.
 Use a default placeholder image when no photo is provided.
 [12](https://github.com/qburn93/convergehub-frontend/issues/12),
 [16](https://github.com/qburn93/convergehub-frontend/issues/16).
+- Will add the option to update food review in the near future.
+![Post Edit Form](https://i.imgur.com/Gde4mQJ.png)
 
-![Post Form](docs/assets/features/post_form.png)
 
 
 ### Post List View
 
-On ConvergeHub's social image sharing platform, this view is shown on the Home, Bookmarks, Feed, and User Profile pages.
+This view is shown on the Home, Feed, and User Profile pages.
 - The compact photo detail shown has been designed to be responsive, with the information layout shifting based on the viewport size for maximum information clarity.
 ## User Stories covered:
 
-- Display a compact view of photo details on Home, Bookmarks, Feed, and User Profile pages.
+- Display a compact view of photo details on Home, Feed, and User Profile pages.
 - Make the view responsive, with the information layout shifting based on the viewport size for maximum information clarity.
 - Allow users to click the photo or the more detail link to open the photo detail page and bookmark photos directly from the list view using the bookmark icon.
 - Display user information through the avatar below the photo and link to the user's profile so users can discover more information about them.
-[14](https://github.com/qburn93/convergehub-frontend/issues/14),
+[14](https://github.com/qburn93/convergehub-backend/issues/3),
 
 
-![Post View]()
+![Post List](https://i.imgur.com/84HXYDK.png)
+
+
 ### Post Detail View
+
+- Contains the entire offer of a travel post with detailed information about it: food review, description, Trip Grade.
+
+- Includes links for the post owner to update or delete the post.
+
+![Post Detail](https://i.imgur.com/s201bG7.png)
+
+
 
 
 [14](),
@@ -207,12 +247,23 @@ On ConvergeHub's social image sharing platform, this view is shown on the Home, 
 - Profile owners can edit their profiles allowing them to add a description and avatar image to present their brand to other users.
 - In addition to editing a profile, users can change their password and username.
 - Users can see how many users they are following.
-- Users will also see a feed of all the postss they have shared on their profile page to make it easier to manage everything they have listed.
+- Users will also see a feed of all the posts they have shared on their profile page to make it easier to manage everything they have listed.
 - User Stories covered:
 [18](),
 
 
-![Profile Page](docs/assets/features/profile.png)
+![Profile Page](https://i.imgur.com/6WzBSRf.png)
+
+<br>
+
+### Mobile
+![Profile Page](https://i.imgur.com/UcQ7anW.png)
+
+# Edit Profile
+- Edit profile makes it possible to update the existing information about a user.
+![Edit Profile Page](https://i.imgur.com/9NKAfXS.png)
+
+
 
 #### Components used in this application
 
@@ -244,7 +295,11 @@ On ConvergeHub's social image sharing platform, this view is shown on the Home, 
 
 
 ### Future Features
+- Add location traveled to profile information to better inform users of their experiences/adventures.
 
+- Add reaction emoji
+
+- Location based review searching by ataching city to location tags and/or increase tag search
 
 ## Testing
 
@@ -253,24 +308,6 @@ On ConvergeHub's social image sharing platform, this view is shown on the Home, 
 <summary>See Testing User Stories</summary>
 
 #### Testing User Stories - Users
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
