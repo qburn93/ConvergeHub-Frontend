@@ -1,4 +1,4 @@
-# ConvergeHub-Backend
+# ConvergeHub-Frontend-Repo
 
 ![Website Preview](https://i.imgur.com/J3b34IW.png)
 
