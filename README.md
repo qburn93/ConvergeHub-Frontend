@@ -14,7 +14,7 @@ This project's backend API is built on the Django REST framework and serves the 
 
 ## Demo
 
-[Frontend - Deployment](Currently not deployed doe to Heroku costs)
+Website is currently not deployed due to Heroku costs.
 
 ### API Project Links
 
