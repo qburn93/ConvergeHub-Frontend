@@ -14,12 +14,12 @@ This project's backend API is built on the Django REST framework and serves the 
 
 ## Demo
 
-[Frontend - Deployment]()
+[Frontend - Deployment](Currently not deployed doe to Heroku costs)
 
 ### API Project Links
 
-- [API - Repository]()
-- [API - Deployment]()
+- [Backend - Repository](https://github.com/qburn93/ConvergeHub-Backend)
+
 
 ## TOC
 
